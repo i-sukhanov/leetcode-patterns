@@ -6,17 +6,13 @@ const syclicSort = (arr) => {
   while (i < arr.length) {
     const pos = arr[i] - 1;
 
-    if (arr[i] !== arr[pos]) {
-      const swap = [arr[i], arr[pos]];
-
-      arr[pos] = swap[0];
-      arr[i] = swap[1];
-    } else {
-      i++;
-    }
+    if (arr[i] !== arr[pos]) [arr[i], arr[pos]] = [arr[pos], arr[i]];
+    else i += 1;
   }
 
   return arr;
 };
 
 const sorterArr = syclicSort(unsortedArr);
+
+console.log(sorterArr);
